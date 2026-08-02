@@ -1,0 +1,31 @@
+{
+  "name": "telegram-business-watcher",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Telegram Business message edit/delete watcher on Cloudflare Workers and D1",
+  "license": "MIT",
+  "keywords": [
+    "telegram",
+    "telegram-business",
+    "cloudflare-workers",
+    "cloudflare-d1",
+    "webhook"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/core.js && node --check src/crypto.js && node --check src/index.js",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create telegram-business-watcher",
+    "db:migrate:local": "wrangler d1 migrations apply telegram-business-watcher --local",
+    "db:migrate:remote": "wrangler d1 migrations apply telegram-business-watcher --remote",
+    "logs": "wrangler tail"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

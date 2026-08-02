@@ -1,0 +1,57 @@
+name: Сообщить об ошибке
+description: Воспроизводимая проблема в Worker, D1 или обработке Telegram
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Не публикуйте токены, ключи, содержимое личных сообщений или полный вывод с секретами. Уязвимости безопасности отправляйте по правилам SECURITY.md.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание
+      description: Что произошло и что ожидалось?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      placeholder: |
+        1. Развернуть...
+        2. Отправить...
+        3. Увидеть...
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: Версия Node.js
+      placeholder: "22.x или 24.x"
+
+  - type: input
+    id: wrangler
+    attributes:
+      label: Версия Wrangler
+      placeholder: "npx wrangler --version"
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Обезличенные логи
+      description: Удалите токены, ID пользователей, содержимое сообщений и другие персональные данные.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Проверки
+      options:
+        - label: Я убедился, что отчёт не содержит секретов или персональных данных.
+          required: true
+        - label: Я проверил существующие issues.
+          required: true
